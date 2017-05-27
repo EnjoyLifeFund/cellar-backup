@@ -369,7 +369,7 @@ module_expsym_cmds="sed -e 's|^|_|' < \$export_symbols > \$output_objdir/\$libna
 with_gnu_ld="no"
 
 # Flag that allows shared libraries with undefined symbols to be built.
-allow_undefined_flag=""
+allow_undefined_flag="\$wl-undefined \${wl}dynamic_lookup"
 
 # Flag that enforces no undefined symbols.
 no_undefined_flag=""
