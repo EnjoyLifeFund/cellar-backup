@@ -6,13 +6,6 @@ class Parallel < Formula
   sha256 "8a0d51632921b80102817151b62ea17eed6b28d088c40d94ed4ee40618a3bccc"
   head "https://git.savannah.gnu.org/git/parallel.git"
 
-  # bottle do
-  #   cellar :any_skip_relocation
-  #   sha256 "6152111a96cef8945a58d96e6b8fa91931d9d25bc33a4e01e93169fb3966fc08" => :sierra
-  #   sha256 "51102dc5bbc06d65178b38a49cee9088ccf9b693c7bc52e998abce7d3384a68b" => :el_capitan
-  #   sha256 "51102dc5bbc06d65178b38a49cee9088ccf9b693c7bc52e998abce7d3384a68b" => :yosemite
-  # end
-
   conflicts_with "moreutils", :because => "both install a 'parallel' executable."
 
   def install

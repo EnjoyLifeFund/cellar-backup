@@ -28,10 +28,10 @@ MODLIBS=        $(LOCALMODLIBS) $(BASEMODLIBS)
 VERSION=	2.7
 srcdir=		.
 
-abs_srcdir=	/private/tmp/python-20170404-83068-1tu6ug4/Python-2.7.13
-abs_builddir=	/private/tmp/python-20170404-83068-1tu6ug4/Python-2.7.13
-build=		x86_64-apple-darwin16.5.0
-host=		x86_64-apple-darwin16.5.0
+abs_srcdir=	/private/tmp/python-20170530-84476-liqfvp/Python-2.7.13
+abs_builddir=	/private/tmp/python-20170530-84476-liqfvp/Python-2.7.13
+build=		x86_64-apple-darwin16.6.0
+host=		x86_64-apple-darwin16.6.0
 
 CC=		clang
 CXX=		clang++
@@ -74,12 +74,12 @@ MAKESETUP=      $(srcdir)/Modules/makesetup
 # Compiler options
 OPT=		-DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes
 BASECFLAGS=	 -fno-strict-aliasing -fno-common -dynamic
-CFLAGS=		$(BASECFLAGS) -g -O2 $(OPT) $(EXTRA_CFLAGS)
+CFLAGS=		$(BASECFLAGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers $(OPT) $(EXTRA_CFLAGS)
 # Both CPPFLAGS and LDFLAGS need to contain the shell's value for setup.py to
 # be able to build extension modules using the directories specified in the
 # environment variables
-CPPFLAGS=	-I. -IInclude -I$(srcdir)/Include 
-LDFLAGS=	
+CPPFLAGS=	-I. -IInclude -I$(srcdir)/Include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include
+LDFLAGS=	-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
 LDLAST=		
 SGI_ABI=	
 CCSHARED=	
@@ -130,7 +130,7 @@ DESTSHARED=	$(BINLIBDEST)/lib-dynload
 
 # Executable suffix (.exe on Windows and Mac OS X)
 EXE=		
-BUILDEXE=	.exe
+BUILDEXE=	
 
 # Short name and location for Mac OS X Python framework
 UNIVERSALSDK=
@@ -148,7 +148,7 @@ export MACOSX_DEPLOYMENT_TARGET
 OTHER_LIBTOOL_OPT=
 
 # Environment to run shared python without installed libraries
-RUNSHARED=       DYLD_FRAMEWORK_PATH=/private/tmp/python-20170404-83068-1tu6ug4/Python-2.7.13
+RUNSHARED=       DYLD_FRAMEWORK_PATH=/private/tmp/python-20170530-84476-liqfvp/Python-2.7.13
 
 # ensurepip options
 ENSUREPIP=      no
@@ -160,7 +160,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--prefix=/usr/local/opt/python' '--enable-ipv6' '--datarootdir=/usr/local/opt/python/share' '--datadir=/usr/local/opt/python/share' '--enable-framework=/usr/local/opt/python/Frameworks' '--without-ensurepip' '--without-gcc' 'MACOSX_DEPLOYMENT_TARGET=10.12' 'CC=clang' 'PKG_CONFIG_PATH=/usr/local/opt/sqlite/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig' 'PKG_CONFIG_LIBDIR=/usr/lib/pkgconfig:/usr/local/Homebrew/Library/Homebrew/os/mac/pkgconfig/10.12'
+CONFIG_ARGS=	 '--prefix=/usr/local/opt/python' '--enable-ipv6' '--datarootdir=/usr/local/opt/python/share' '--datadir=/usr/local/opt/python/share' '--enable-framework=/usr/local/opt/python/Frameworks' '--without-ensurepip' '--without-gcc' 'MACOSX_DEPLOYMENT_TARGET=10.12' 'CFLAGS=-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers' 'LDFLAGS=-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk' 'CPPFLAGS=-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include' 'CC=clang' 'PKG_CONFIG_PATH=/usr/local/opt/sqlite/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig' 'PKG_CONFIG_LIBDIR=/usr/lib/pkgconfig:/usr/local/Homebrew/Library/Homebrew/os/mac/pkgconfig/10.12'
 
 
 # Subdirectories with code
@@ -203,7 +203,7 @@ BUILDPYTHON=	python$(BUILDEXE)
 
 PYTHON_FOR_BUILD=./$(BUILDPYTHON) -E
 _PYTHON_HOST_PLATFORM=
-HOST_GNU_TYPE=  x86_64-apple-darwin16.5.0
+HOST_GNU_TYPE=  x86_64-apple-darwin16.6.0
 
 # Tcl and Tk config info from --with-tcltk-includes and -libs options
 TCLTK_INCLUDES=	

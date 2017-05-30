@@ -51,6 +51,8 @@
 #define HAVE_TIME_H 1
 #define HAVE_UCONTEXT_H 1
 #define HAVE_UTIME_H 1
+#define HAVE_GMP_H 1
+#define HAVE_LIBGMP 1
 #define HAVE_TYPEOF 1
 #define HAVE_LONG_LONG 1
 #define HAVE_OFF_T 1

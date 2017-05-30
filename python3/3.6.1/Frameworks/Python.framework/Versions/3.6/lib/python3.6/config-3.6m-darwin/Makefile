@@ -29,8 +29,8 @@ MODLIBS=        $(LOCALMODLIBS) $(BASEMODLIBS)
 VERSION=	3.6
 srcdir=		.
 
-abs_srcdir=	/private/tmp/python3-20170524-49144-1tok637/Python-3.6.1
-abs_builddir=	/private/tmp/python3-20170524-49144-1tok637/Python-3.6.1
+abs_srcdir=	/private/tmp/python3-20170530-93794-aa1kpx/Python-3.6.1
+abs_builddir=	/private/tmp/python3-20170530-93794-aa1kpx/Python-3.6.1
 
 
 CC=		clang
@@ -81,13 +81,13 @@ MAKESETUP=      $(srcdir)/Modules/makesetup
 OPT=		-DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes
 BASECFLAGS=	 -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic
 BASECPPFLAGS=	
-CONFIGURE_CFLAGS=	
+CONFIGURE_CFLAGS=	-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers
 # CFLAGS_NODIST is used for building the interpreter and stdlib C extensions.
 # Use it when a compiler flag should _not_ be part of the distutils CFLAGS
 # once Python is installed (Issue #21121).
 CONFIGURE_CFLAGS_NODIST= -std=c99 -Wextra -Wno-unused-result -Wno-unused-parameter -Wno-missing-field-initializers
-CONFIGURE_CPPFLAGS=	-I/usr/local/opt/tcl-tk/include
-CONFIGURE_LDFLAGS=	-L/usr/local/opt/tcl-tk/lib
+CONFIGURE_CPPFLAGS=	-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include
+CONFIGURE_LDFLAGS=	-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
 # Avoid assigning CFLAGS, LDFLAGS, etc. so users can use them on the
 # command line to append to these values without stomping the pre-set
 # values.
@@ -175,7 +175,7 @@ LIPO_32BIT_FLAGS=
 OTHER_LIBTOOL_OPT=
 
 # Environment to run shared python without installed libraries
-RUNSHARED=       DYLD_FRAMEWORK_PATH=/private/tmp/python3-20170524-49144-1tok637/Python-3.6.1
+RUNSHARED=       DYLD_FRAMEWORK_PATH=/private/tmp/python3-20170530-93794-aa1kpx/Python-3.6.1
 
 # ensurepip options
 ENSUREPIP=      no
@@ -187,7 +187,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--prefix=/usr/local/opt/python3' '--enable-ipv6' '--datarootdir=/usr/local/opt/python3/share' '--datadir=/usr/local/opt/python3/share' '--enable-framework=/usr/local/opt/python3/Frameworks' '--without-ensurepip' '--with-dtrace' '--without-gcc' '--enable-loadable-sqlite-extensions' 'MACOSX_DEPLOYMENT_TARGET=10.12' 'LDFLAGS=-L/usr/local/opt/tcl-tk/lib' 'CPPFLAGS=-I/usr/local/opt/tcl-tk/include' 'CC=clang' 'PKG_CONFIG_PATH=/usr/local/opt/sqlite/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/xz/lib/pkgconfig:/usr/local/opt/tcl-tk/lib/pkgconfig' 'PKG_CONFIG_LIBDIR=/usr/lib/pkgconfig:/usr/local/Homebrew/Library/Homebrew/os/mac/pkgconfig/10.12'
+CONFIG_ARGS=	 '--prefix=/usr/local/opt/python3' '--enable-ipv6' '--datarootdir=/usr/local/opt/python3/share' '--datadir=/usr/local/opt/python3/share' '--enable-framework=/usr/local/opt/python3/Frameworks' '--without-ensurepip' '--with-dtrace' '--without-gcc' '--enable-loadable-sqlite-extensions' 'MACOSX_DEPLOYMENT_TARGET=10.12' 'CFLAGS=-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers' 'LDFLAGS=-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk' 'CPPFLAGS=-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include' 'CC=clang' 'PKG_CONFIG_PATH=/usr/local/opt/sqlite/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/xz/lib/pkgconfig' 'PKG_CONFIG_LIBDIR=/usr/lib/pkgconfig:/usr/local/Homebrew/Library/Homebrew/os/mac/pkgconfig/10.12'
 
 
 # Subdirectories with code

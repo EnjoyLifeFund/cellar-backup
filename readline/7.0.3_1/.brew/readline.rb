@@ -7,13 +7,6 @@ class Readline < Formula
   sha256 "750d437185286f40a369e1e4f4764eda932b9459b5ec9a731628393dd3d32334"
   revision 1
 
-  # bottle do
-  #   cellar :any
-  #   sha256 "af7886c963fe3e9f58c45d679a64b278f4df7b172bbd978cf42658a7fd7b4a2a" => :sierra
-  #   sha256 "86766a343a07e08c52e7e87e64a12d3aa34bf71ba248fc779a2c5b0664797ba9" => :el_capitan
-  #   sha256 "11589e87c4860e414fe5a4b3481d20e47258f41a91a7490a5c88e1a57d5e1d18" => :yosemite
-  # end
-
   %w[
     001 9ac1b3ac2ec7b1bf0709af047f2d7d2a34ccde353684e57c6b47ebca77d7a376
     002 8747c92c35d5db32eae99af66f17b384abaca961653e185677f9c9a571ed2d58

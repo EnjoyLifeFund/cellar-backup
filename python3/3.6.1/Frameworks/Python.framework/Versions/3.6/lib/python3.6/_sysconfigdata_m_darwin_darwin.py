@@ -19,8 +19,8 @@ build_time_vars = {'ABIFLAGS': 'm',
  'BINDIR': '/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6/bin',
  'BINLIBDEST': '/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6/lib/python3.6',
  'BLDLIBRARY': '',
- 'BLDSHARED': 'clang -bundle -undefined dynamic_lookup '
-              '-L/usr/local/opt/tcl-tk/lib',
+ 'BLDSHARED': 'clang -bundle -undefined dynamic_lookup -isysroot '
+              '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk',
  'BUILDEXE': '',
  'BUILDPYTHON': 'python',
  'BUILD_GNU_TYPE': 'x86_64-apple-darwin16.6.0',
@@ -28,36 +28,47 @@ build_time_vars = {'ABIFLAGS': 'm',
  'CC': 'clang',
  'CCSHARED': '',
  'CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common '
-           '-dynamic -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes',
+           '-dynamic -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes '
+           '-isysroot '
+           '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk '
+           '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers',
  'CFLAGSFORSHARED': '',
  'CFLAGS_NODIST': '',
  'CONFIGFILES': 'configure configure.ac acconfig.h pyconfig.h.in '
                 'Makefile.pre.in',
- 'CONFIGURE_CFLAGS': '',
+ 'CONFIGURE_CFLAGS': '-isysroot '
+                     '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk '
+                     '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers',
  'CONFIGURE_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
                             '-Wno-unused-parameter '
                             '-Wno-missing-field-initializers',
- 'CONFIGURE_CPPFLAGS': '-I/usr/local/opt/tcl-tk/include',
- 'CONFIGURE_LDFLAGS': '-L/usr/local/opt/tcl-tk/lib',
+ 'CONFIGURE_CPPFLAGS': '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include',
+ 'CONFIGURE_LDFLAGS': '-isysroot '
+                      '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk',
  'CONFIG_ARGS': "'--prefix=/usr/local/opt/python3' '--enable-ipv6' "
                 "'--datarootdir=/usr/local/opt/python3/share' "
                 "'--datadir=/usr/local/opt/python3/share' "
                 "'--enable-framework=/usr/local/opt/python3/Frameworks' "
                 "'--without-ensurepip' '--with-dtrace' '--without-gcc' "
                 "'--enable-loadable-sqlite-extensions' "
-                "'MACOSX_DEPLOYMENT_TARGET=10.12' "
-                "'LDFLAGS=-L/usr/local/opt/tcl-tk/lib' "
-                "'CPPFLAGS=-I/usr/local/opt/tcl-tk/include' 'CC=clang' "
-                "'PKG_CONFIG_PATH=/usr/local/opt/sqlite/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/xz/lib/pkgconfig:/usr/local/opt/tcl-tk/lib/pkgconfig' "
+                "'MACOSX_DEPLOYMENT_TARGET=10.12' 'CFLAGS=-isysroot "
+                '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk '
+                "-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers' "
+                "'LDFLAGS=-isysroot "
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk' "
+                "'CPPFLAGS=-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include' "
+                "'CC=clang' "
+                "'PKG_CONFIG_PATH=/usr/local/opt/sqlite/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/xz/lib/pkgconfig' "
                 "'PKG_CONFIG_LIBDIR=/usr/lib/pkgconfig:/usr/local/Homebrew/Library/Homebrew/os/mac/pkgconfig/10.12'",
  'CONFINCLUDEDIR': '/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6/include',
  'CONFINCLUDEPY': '/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6/include/python3.6m',
  'COREPYTHONPATH': ':',
- 'COVERAGE_INFO': '/private/tmp/python3-20170524-49144-1tok637/Python-3.6.1/coverage.info',
- 'COVERAGE_REPORT': '/private/tmp/python3-20170524-49144-1tok637/Python-3.6.1/lcov-report',
+ 'COVERAGE_INFO': '/private/tmp/python3-20170530-93794-aa1kpx/Python-3.6.1/coverage.info',
+ 'COVERAGE_REPORT': '/private/tmp/python3-20170530-93794-aa1kpx/Python-3.6.1/lcov-report',
  'COVERAGE_REPORT_OPTIONS': '--no-branch-coverage --title "CPython lcov '
                             'report"',
- 'CPPFLAGS': '-I. -I./Include -I/usr/local/opt/tcl-tk/include',
+ 'CPPFLAGS': '-I. -I./Include '
+             '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include',
  'CXX': 'clang++',
  'DESTDIRS': '/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6 '
              '/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6/lib '
@@ -497,12 +508,13 @@ build_time_vars = {'ABIFLAGS': 'm',
  'IO_H': 'Modules/_io/_iomodule.h',
  'IO_OBJS': '\\',
  'LDCXXSHARED': 'clang++ -bundle -undefined dynamic_lookup',
- 'LDFLAGS': '-L/usr/local/opt/tcl-tk/lib',
+ 'LDFLAGS': '-isysroot '
+            '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk',
  'LDLAST': '',
  'LDLIBRARY': 'Python.framework/Versions/3.6/Python',
  'LDLIBRARYDIR': '',
- 'LDSHARED': 'clang -bundle -undefined dynamic_lookup '
-             '-L/usr/local/opt/tcl-tk/lib',
+ 'LDSHARED': 'clang -bundle -undefined dynamic_lookup -isysroot '
+             '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk',
  'LDVERSION': '3.6m',
  'LIBC': '',
  'LIBDEST': '/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6/lib/python3.6',
@@ -606,18 +618,25 @@ build_time_vars = {'ABIFLAGS': 'm',
  'PYTHON_OBJS': '\\',
  'PY_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code '
               '-fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall '
-              '-Wstrict-prototypes',
+              '-Wstrict-prototypes -isysroot '
+              '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk '
+              '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers',
  'PY_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
                      '-Wno-unused-parameter -Wno-missing-field-initializers',
  'PY_CORE_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code '
                    '-fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall '
-                   '-Wstrict-prototypes -std=c99 -Wextra -Wno-unused-result '
-                   '-Wno-unused-parameter -Wno-missing-field-initializers -I. '
-                   '-I./Include -I/usr/local/opt/tcl-tk/include  '
+                   '-Wstrict-prototypes -isysroot '
+                   '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk '
+                   '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers '
+                   '-std=c99 -Wextra -Wno-unused-result -Wno-unused-parameter '
+                   '-Wno-missing-field-initializers -I. -I./Include '
+                   '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include  '
                    '-DPy_BUILD_CORE',
- 'PY_CPPFLAGS': '-I. -I./Include -I/usr/local/opt/tcl-tk/include',
+ 'PY_CPPFLAGS': '-I. -I./Include '
+                '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include',
  'PY_FORMAT_SIZE_T': '"z"',
- 'PY_LDFLAGS': '-L/usr/local/opt/tcl-tk/lib',
+ 'PY_LDFLAGS': '-isysroot '
+               '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk',
  'Py_DEBUG': 0,
  'Py_ENABLE_SHARED': 0,
  'Py_HASH_ALGORITHM': 0,
@@ -626,7 +645,7 @@ build_time_vars = {'ABIFLAGS': 'm',
  'READELF': ':',
  'RESSRCDIR': 'Mac/Resources/framework',
  'RETSIGTYPE': 'void',
- 'RUNSHARED': 'DYLD_FRAMEWORK_PATH=/private/tmp/python3-20170524-49144-1tok637/Python-3.6.1',
+ 'RUNSHARED': 'DYLD_FRAMEWORK_PATH=/private/tmp/python3-20170530-93794-aa1kpx/Python-3.6.1',
  'SCRIPTDIR': '/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6/lib',
  'SETPGRP_HAVE_ARG': 0,
  'SGI_ABI': '',
@@ -667,10 +686,10 @@ build_time_vars = {'ABIFLAGS': 'm',
  'TCLTK_LIBS': '',
  'TESTOPTS': '',
  'TESTPATH': '',
- 'TESTPYTHON': 'DYLD_FRAMEWORK_PATH=/private/tmp/python3-20170524-49144-1tok637/Python-3.6.1 '
+ 'TESTPYTHON': 'DYLD_FRAMEWORK_PATH=/private/tmp/python3-20170530-93794-aa1kpx/Python-3.6.1 '
                './python',
  'TESTPYTHONOPTS': '',
- 'TESTRUNNER': 'DYLD_FRAMEWORK_PATH=/private/tmp/python3-20170524-49144-1tok637/Python-3.6.1 '
+ 'TESTRUNNER': 'DYLD_FRAMEWORK_PATH=/private/tmp/python3-20170530-93794-aa1kpx/Python-3.6.1 '
                './python ./Tools/scripts/run_tests.py',
  'TESTTIMEOUT': 1200,
  'THREADOBJ': 'Python/thread.o',
@@ -694,8 +713,8 @@ build_time_vars = {'ABIFLAGS': 'm',
  'WITH_VALGRIND': 0,
  'X87_DOUBLE_ROUNDING': 0,
  'XMLLIBSUBDIRS': 'xml xml/dom xml/etree xml/parsers xml/sax',
- 'abs_builddir': '/private/tmp/python3-20170524-49144-1tok637/Python-3.6.1',
- 'abs_srcdir': '/private/tmp/python3-20170524-49144-1tok637/Python-3.6.1',
+ 'abs_builddir': '/private/tmp/python3-20170530-93794-aa1kpx/Python-3.6.1',
+ 'abs_srcdir': '/private/tmp/python3-20170530-93794-aa1kpx/Python-3.6.1',
  'datarootdir': '/usr/local/opt/python3/share',
  'exec_prefix': '/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6',
  'prefix': '/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6',

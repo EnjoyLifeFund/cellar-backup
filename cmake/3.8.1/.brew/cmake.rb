@@ -5,7 +5,7 @@ class Cmake < Formula
   sha256 "ce5d9161396e06501b00e52933783150a87c33080d4bdcef461b5b7fd24ac228"
   head "https://cmake.org/cmake.git"
 
-  option "without-docs", "Don't build man pages"
+#  option "without-docs", "Don't build man pages"
   option "with-completion", "Install Bash completion (Has potential problems with system bash)"
 
   depends_on "sphinx-doc" => :build if build.with? "docs"
