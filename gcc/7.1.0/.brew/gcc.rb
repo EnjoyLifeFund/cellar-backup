@@ -46,15 +46,14 @@ class Gcc < Formula
     sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
   end
 
-    # Use -headerpad_max_install_names in the build,
-    # otherwise lto1 load commands cannot be edited on El Capitan
-    if MacOS.version == :el_capitan
-      patch do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/32cf103/gcc/7.1.0-headerpad.patch"
-        sha256 "dd884134e49ae552b51085116e437eafa63460b57ce84252bfe7a69df8401640"
-      end
+  # Use -headerpad_max_install_names in the build,
+  # otherwise lto1 load commands cannot be edited on El Capitan
+  if MacOS.version == :el_capitan
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/32cf103/gcc/7.1.0-headerpad.patch"
+      sha256 "dd884134e49ae552b51085116e437eafa63460b57ce84252bfe7a69df8401640"
     end
-
+  end
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
