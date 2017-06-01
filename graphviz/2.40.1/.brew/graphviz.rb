@@ -53,7 +53,7 @@ class Graphviz < Formula
       # the ruby pkg-config file is version specific
       inreplace "configure" do |s|
         s.gsub! "ruby-1.9", "ruby-#{Formula["ruby"].stable.version.to_f}"
-        s.gsub! "if test `$SWIG -php7 2>&1", "if test `$SWIG -php0 2>&1"
+        s.gsub! "if test  -php0 2>&1"
       end
     end
 
@@ -61,17 +61,15 @@ class Graphviz < Formula
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --without-qt
       --with-quartz
-      --with-qt
-      --with-rsvg
-      --with-freetype
     ]
     args << "--with-gts" if build.with? "gts"
     args << "--disable-swig" if build.without? "bindings"
     args << "--without-pangocairo" if build.without? "pango"
-    #args << "--without-freetype2" if build.without? "freetype"
-    #args << "--without-x" if build.without? "x11"
-    #args << "--without-rsvg" if build.without? "librsvg"
+    args << "--without-freetype2" if build.without? "freetype"
+    args << "--without-x" if build.without? "x11"
+    args << "--without-rsvg" if build.without? "librsvg"
 
     if build.head?
       system "./autogen.sh", *args
