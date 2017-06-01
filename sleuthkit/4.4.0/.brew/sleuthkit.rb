@@ -4,19 +4,18 @@ class Sleuthkit < Formula
   url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.4.0/sleuthkit-4.4.0.tar.gz"
   sha256 "7d252562622f657001e080777c5fe1fd919b952fa3d658c86a62e57b6ad70f57"
 
-  conflicts_with "irods", :because => "both install `ils`"
-
   option "with-jni", "Build Sleuthkit with JNI bindings"
   option "with-debug", "Build debug version"
+
+  depends_on "afflib" => :optional
+  depends_on "libewf" => :optional
 
   if build.with? "jni"
     depends_on :java
     depends_on :ant => :build
   end
 
-  depends_on "afflib" => :optional
-  depends_on "libewf" => :optional
-
+  conflicts_with "irods", :because => "both install `ils`"
   conflicts_with "ffind",
     :because => "both install a 'ffind' executable."
 
@@ -24,9 +23,10 @@ class Sleuthkit < Formula
     ENV.append_to_cflags "-DNDEBUG" if build.without? "debug"
     ENV.java_cache if build.with? "jni"
 
-    system "./configure", "--disable-dependency-tracking",
-                          if build.without? "jni" then "--disable-java" end,
-                          "--prefix=#{prefix}"
+    args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
+    args << "--disable-java" if build.without? "jni"
+
+    system "./configure", *args
     system "make"
     system "make", "install"
 
