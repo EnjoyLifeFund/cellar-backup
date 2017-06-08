@@ -1,0 +1,12 @@
+prefix=/usr/local/Cellar/libdill/1.6
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libdill
+Description: coroutine library
+URL: http://libdill.org/
+Version: 14.0.1
+Requires:
+Libs: -L${libdir} -ldill 
+Cflags: -I${includedir}
