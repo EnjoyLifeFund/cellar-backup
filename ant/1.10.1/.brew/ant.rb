@@ -5,11 +5,20 @@ class Ant < Formula
   sha256 "51dd6b4ec740013dc5ad71812ce5d727a9956aa3a56de7164c76cbd70d015d79"
   head "https://git-wip-us.apache.org/repos/asf/ant.git"
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 640ff66d9f2b9068c69aed2f8e84d6df9422ffa8
   keg_only :provided_by_osx if MacOS.version < :mavericks
 
   option "with-ivy", "Install ivy dependency manager"
   option "with-bcel", "Install Byte Code Engineering Library"
 
+<<<<<<< HEAD
+=======
+  depends_on :java => "1.8+"
+
+>>>>>>> 640ff66d9f2b9068c69aed2f8e84d6df9422ffa8
   resource "ivy" do
     url "https://www.apache.org/dyn/closer.cgi?path=ant/ivy/2.4.0/apache-ivy-2.4.0-bin.tar.gz"
     sha256 "7a3d13a80b69d71608191463dfc2a74fff8ef638ce0208e70d54d28ba9785ee9"

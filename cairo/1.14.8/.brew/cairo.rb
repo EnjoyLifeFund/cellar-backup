@@ -5,9 +5,16 @@ class Cairo < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/cairo-1.14.8.tar.xz"
   sha256 "d1f2d98ae9a4111564f6de4e013d639cf77155baf2556582295a0f00a9bc5e20"
 
+<<<<<<< HEAD
   devel do
     url "https://cairographics.org/snapshots/cairo-1.15.2.tar.xz"
     sha256 "268cc265a7f807403582f440643064bf52896556766890c8df7bad02d230f6c9"
+=======
+
+  devel do
+    url "https://cairographics.org/snapshots/cairo-1.15.4.tar.xz"
+    sha256 "deddf31e196e826e7790bbbf7d0f4b3fd15df243aa48511b349f1791b96be291"
+>>>>>>> 640ff66d9f2b9068c69aed2f8e84d6df9422ffa8
   end
 
   head do
@@ -19,10 +26,15 @@ class Cairo < Formula
 
   keg_only :provided_pre_mountain_lion
 
+<<<<<<< HEAD
   option :universal
 
   depends_on "pkg-config" => :build
   depends_on :x11 => :optional if MacOS.version > :leopard
+=======
+  depends_on "pkg-config" => :build
+  depends_on :x11 => :optional
+>>>>>>> 640ff66d9f2b9068c69aed2f8e84d6df9422ffa8
   depends_on "freetype"
   depends_on "fontconfig"
   depends_on "libpng"
@@ -30,8 +42,11 @@ class Cairo < Formula
   depends_on "glib"
 
   def install
+<<<<<<< HEAD
     ENV.universal_binary if build.universal?
 
+=======
+>>>>>>> 640ff66d9f2b9068c69aed2f8e84d6df9422ffa8
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
