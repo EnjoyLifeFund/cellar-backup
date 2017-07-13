@@ -4,7 +4,7 @@ class Zeromq < Formula
   url "https://github.com/zeromq/libzmq/releases/download/v4.2.2/zeromq-4.2.2.tar.gz"
   sha256 "5b23f4ca9ef545d5bd3af55d305765e3ee06b986263b31967435d285a3e6df6b"
 
-  head do
+#  head do
     url "https://github.com/zeromq/libzmq.git"
 
     depends_on "autoconf" => :build
