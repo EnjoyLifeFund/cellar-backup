@@ -5,7 +5,7 @@ class Node < Formula
   sha256 "a83c86445f79749c46fd4f2c4e681a3e5bb51b2bde5dc7aed1dc38e4e242c301"
   head "https://github.com/nodejs/node.git"
 
-  option "with-debug", "Build with debugger hooks"
+#  option "with-debug", "Build with debugger hooks"
   option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
