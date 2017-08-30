@@ -1,0 +1,10 @@
+rhome=/usr/local/Cellar/r/3.4.1_2/lib/R
+rlibdir=${rhome}/lib
+rincludedir=/usr/local/Cellar/r/3.4.1_2/lib/R/include
+
+Name: libR
+Description: R as a library
+Version: 3.4.1
+Libs:  -L/usr/local/opt/gettext/lib -L/usr/local/opt/readline/lib -L${rlibdir} -lR
+Cflags: -I${rincludedir} -I${rincludedir}
+Libs.private:

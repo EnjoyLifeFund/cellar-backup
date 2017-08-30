@@ -1,0 +1,8 @@
+includedir=/usr/local/Cellar/r/3.4.1_2/include
+libdir=/usr/local/Cellar/r/3.4.1_2/lib
+
+Name: libRmath
+Description: The Rmath function library
+Version: 3.4.1
+Libs: -L${libdir} -lRmath 
+Cflags: -I${includedir}
