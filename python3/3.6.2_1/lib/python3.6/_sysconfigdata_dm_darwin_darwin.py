@@ -14,8 +14,9 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'BLDLIBRARY': '-L. -lpython3.6dm',
  'BLDSHARED': 'cc -bundle -undefined dynamic_lookup -fsanitize=address '
               '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
-              '-L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib '
-              '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
+              '-L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib '
+              '-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/openblas/lib '
+              '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
               '-L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib',
  'BUILDEXE': '',
  'BUILDPYTHON': 'python',
@@ -38,10 +39,14 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'CONFIGURE_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
                             '-Wno-unused-parameter '
                             '-Wno-missing-field-initializers',
- 'CONFIGURE_CPPFLAGS': '-I/usr/include/ '
-                       '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include',
+ 'CONFIGURE_CPPFLAGS': '-I/usr/local/opt/openblas/include '
+                       '-I/usr/local/opt/llvm/include '
+                       '-I/usr/local/opt/sqlite/include '
+                       '-I/usr/local/opt/readline/include '
+                       '-I/usr/local/opt/openssl@1.1/include',
  'CONFIGURE_LDFLAGS': '-fsanitize=address -L/usr/local/opt/openblas/lib '
-                      '-L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib '
+                      '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
+                      '-L/usr/local/opt/readline/lib '
                       '-L/usr/local/opt/openssl@1.1/lib',
  'CONFIG_ARGS': "'--enable-ipv6' '--enable-profiling' '--enable-optimizations' "
                 "'--enable-loadable-sqlite-extensions' "
@@ -53,10 +58,13 @@ build_time_vars = {'ABIFLAGS': 'dm',
                 "'CC=cc' 'CFLAGS=-fomit-frame-pointer -funroll-loops  "
                 '-ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx '
                 "-msse -flto  ' 'LDFLAGS=-L/usr/local/opt/openblas/lib "
-                '-L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib '
-                "-L/usr/local/opt/openssl@1.1/lib ' 'CPPFLAGS=-I/usr/include/ "
-                "-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include' "
-                "'CPP=cc -E'",
+                '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
+                '-L/usr/local/opt/readline/lib '
+                "-L/usr/local/opt/openssl@1.1/lib ' "
+                "'CPPFLAGS=-I/usr/local/opt/openblas/include "
+                '-I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include '
+                '-I/usr/local/opt/readline/include '
+                "-I/usr/local/opt/openssl@1.1/include ' 'CPP=cc -E'",
  'CONFINCLUDEDIR': '/usr/local/Cellar/python3/3.6.2_1/include',
  'CONFINCLUDEPY': '/usr/local/Cellar/python3/3.6.2_1/include/python3.6dm',
  'COREPYTHONPATH': ':',
@@ -64,9 +72,12 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'COVERAGE_REPORT': '/Users/dojo/Library/Caches/Homebrew/Python-3.6.2/lcov-report',
  'COVERAGE_REPORT_OPTIONS': '--no-branch-coverage --title "CPython lcov '
                             'report"',
- 'CPPFLAGS': '-I. -I./Include -I/usr/include/ '
-             '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include '
+ 'CPPFLAGS': '-I. -I./Include -I/usr/local/opt/openblas/include '
+             '-I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include '
+             '-I/usr/local/opt/readline/include '
+             '-I/usr/local/opt/openssl@1.1/include '
              '-I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include '
+             '-I/usr/local/opt/sqlite/include '
              '-I/usr/local/opt/readline/include '
              '-I/usr/local/opt/openssl@1.1/include',
  'CXX': 'g++',
@@ -336,11 +347,11 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'HAVE_RENAMEAT': 1,
  'HAVE_RL_APPEND_HISTORY': 1,
  'HAVE_RL_CALLBACK': 1,
- 'HAVE_RL_CATCH_SIGNAL': 0,
+ 'HAVE_RL_CATCH_SIGNAL': 1,
  'HAVE_RL_COMPLETION_APPEND_CHARACTER': 1,
  'HAVE_RL_COMPLETION_DISPLAY_MATCHES_HOOK': 1,
  'HAVE_RL_COMPLETION_MATCHES': 1,
- 'HAVE_RL_COMPLETION_SUPPRESS_APPEND': 0,
+ 'HAVE_RL_COMPLETION_SUPPRESS_APPEND': 1,
  'HAVE_RL_PRE_INPUT_HOOK': 1,
  'HAVE_RL_RESIZE_TERMINAL': 1,
  'HAVE_ROUND': 1,
@@ -506,17 +517,19 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'IO_OBJS': '\\',
  'LDCXXSHARED': 'g++ -bundle -undefined dynamic_lookup',
  'LDFLAGS': '-fsanitize=address -L/usr/local/opt/openblas/lib '
-            '-L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib '
-            '-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/openblas/lib '
-            '-L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib '
+            '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
+            '-L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib '
+            '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
+            '-L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib '
             '-L/usr/local/opt/openssl@1.1/lib',
  'LDLAST': '',
  'LDLIBRARY': 'libpython3.6dm.dylib',
  'LDLIBRARYDIR': '',
  'LDSHARED': 'cc -bundle -undefined dynamic_lookup -fsanitize=address '
              '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
-             '-L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib '
-             '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
+             '-L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib '
+             '-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/openblas/lib '
+             '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
              '-L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib',
  'LDVERSION': '3.6dm',
  'LIBC': '',
@@ -606,7 +619,7 @@ build_time_vars = {'ABIFLAGS': 'dm',
  'PYTHONFRAMEWORKPREFIX': '',
  'PYTHONPATH': ':',
  'PYTHON_FOR_BUILD': './python -E',
- 'PYTHON_FOR_REGEN': 'python',
+ 'PYTHON_FOR_REGEN': 'python3.6',
  'PYTHON_HEADERS': '\\',
  'PYTHON_OBJS': '\\',
  'PY_CFLAGS': '-fsanitize=address -fno-omit-frame-pointer  -Wno-unused-result '
@@ -630,23 +643,30 @@ build_time_vars = {'ABIFLAGS': 'dm',
                    '-Wno-unused-parameter -Wno-missing-field-initializers '
                    '-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast '
                    '-fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto -I. '
-                   '-I./Include -I/usr/include/ '
-                   '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include '
+                   '-I./Include -I/usr/local/opt/openblas/include '
+                   '-I/usr/local/opt/llvm/include '
+                   '-I/usr/local/opt/sqlite/include '
+                   '-I/usr/local/opt/readline/include '
+                   '-I/usr/local/opt/openssl@1.1/include '
                    '-I/usr/local/opt/openblas/include '
                    '-I/usr/local/opt/llvm/include '
+                   '-I/usr/local/opt/sqlite/include '
                    '-I/usr/local/opt/readline/include '
                    '-I/usr/local/opt/openssl@1.1/include  -DPy_BUILD_CORE',
- 'PY_CPPFLAGS': '-I. -I./Include -I/usr/include/ '
-                '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include '
+ 'PY_CPPFLAGS': '-I. -I./Include -I/usr/local/opt/openblas/include '
+                '-I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include '
+                '-I/usr/local/opt/readline/include '
+                '-I/usr/local/opt/openssl@1.1/include '
                 '-I/usr/local/opt/openblas/include '
-                '-I/usr/local/opt/llvm/include '
+                '-I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include '
                 '-I/usr/local/opt/readline/include '
                 '-I/usr/local/opt/openssl@1.1/include',
  'PY_FORMAT_SIZE_T': '"z"',
  'PY_LDFLAGS': '-fsanitize=address -L/usr/local/opt/openblas/lib '
-               '-L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib '
-               '-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/openblas/lib '
-               '-L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib '
+               '-L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib '
+               '-L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib '
+               '-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib '
+               '-L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib '
                '-L/usr/local/opt/openssl@1.1/lib',
  'Py_DEBUG': 1,
  'Py_ENABLE_SHARED': 1,

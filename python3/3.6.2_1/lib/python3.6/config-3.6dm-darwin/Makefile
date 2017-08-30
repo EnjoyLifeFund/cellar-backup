@@ -86,8 +86,8 @@ CONFIGURE_CFLAGS=	-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-s
 # Use it when a compiler flag should _not_ be part of the distutils CFLAGS
 # once Python is installed (Issue #21121).
 CONFIGURE_CFLAGS_NODIST= -std=c99 -Wextra -Wno-unused-result -Wno-unused-parameter -Wno-missing-field-initializers
-CONFIGURE_CPPFLAGS=	-I/usr/include/ -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include
-CONFIGURE_LDFLAGS=	-fsanitize=address -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib 
+CONFIGURE_CPPFLAGS=	-I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/openssl@1.1/include 
+CONFIGURE_LDFLAGS=	-fsanitize=address -L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib 
 # Avoid assigning CFLAGS, LDFLAGS, etc. so users can use them on the
 # command line to append to these values without stomping the pre-set
 # values.
@@ -189,7 +189,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--enable-ipv6' '--enable-profiling' '--enable-optimizations' '--enable-loadable-sqlite-extensions' '--with-address-sanitizer' '--with-system-ffi' '--with-system-expat' '--with-system-libmpdec' '--with-threads' '--with-valgrind' '--with-lto' '--with-assertions' '--with-pydebug' '--enable-shared' '--without-gcc' '--prefix=/usr/local/Cellar/python3/3.6.2_1' 'CC=cc' 'CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto  ' 'LDFLAGS=-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib ' 'CPPFLAGS=-I/usr/include/ -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include' 'CPP=cc -E'
+CONFIG_ARGS=	 '--enable-ipv6' '--enable-profiling' '--enable-optimizations' '--enable-loadable-sqlite-extensions' '--with-address-sanitizer' '--with-system-ffi' '--with-system-expat' '--with-system-libmpdec' '--with-threads' '--with-valgrind' '--with-lto' '--with-assertions' '--with-pydebug' '--enable-shared' '--without-gcc' '--prefix=/usr/local/Cellar/python3/3.6.2_1' 'CC=cc' 'CFLAGS=-fomit-frame-pointer -funroll-loops  -ffast-math -Ofast -fno-signed-zeros -ffp-contract=fast -mmmx -msse -flto  ' 'LDFLAGS=-L/usr/local/opt/openblas/lib -L/usr/local/opt/llvm/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/openssl@1.1/lib ' 'CPPFLAGS=-I/usr/local/opt/openblas/include -I/usr/local/opt/llvm/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/readline/include -I/usr/local/opt/openssl@1.1/include ' 'CPP=cc -E'
 
 
 # Subdirectories with code
@@ -230,7 +230,7 @@ LIBOBJS=
 PYTHON=		python$(EXE)
 BUILDPYTHON=	python$(BUILDEXE)
 
-PYTHON_FOR_REGEN=python
+PYTHON_FOR_REGEN=python3.6
 PYTHON_FOR_BUILD=./$(BUILDPYTHON) -E
 _PYTHON_HOST_PLATFORM=
 BUILD_GNU_TYPE=	x86_64-apple-darwin16.7.0
