@@ -46,7 +46,7 @@
 #define _LIBCPP_NO_THREAD_SAFETY_ANALYSIS
 #endif
 
-typedef ipc_port_t mach_port_t;
+// typedef ipc_port_t mach_port_t;
 typedef struct ipc_port *ipc_port_t;
 
 _LIBCPP_BEGIN_NAMESPACE_STD
