@@ -1,5 +1,0 @@
-Name: tensorflow
-Description: Tensorflow library
-Version: 1.3.0
-Libs: -L/usr/local/Cellar/libtensorflow/1.3.0/lib -ltensorflow
-Cflags: -I/usr/local/Cellar/libtensorflow/1.3.0/include

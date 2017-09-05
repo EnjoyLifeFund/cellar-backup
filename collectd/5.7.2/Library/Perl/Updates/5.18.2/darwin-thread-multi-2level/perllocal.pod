@@ -1,0 +1,22 @@
+=head2 Fri Jul 14 08:51:40 2017: C<Module> L<Collectd|Collectd>
+
+=over 4
+
+=item *
+
+C<installed into: /usr/local/Cellar/collectd/5.7.2/lib/perl5/site_perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: >
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
